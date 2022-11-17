@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="8.0">
+    <file name="src/main/kotlin/webserver/Http.kt">
+        <error line="1" column="1" severity="error" message="File must end with a newline (\n)" source="final-newline" />
+        <error line="10" column="1" severity="error" message="Unexpected indentation (2) (should be 4)" source="indent" />
+        <error line="11" column="1" severity="error" message="Unexpected indentation (2) (should be 4)" source="indent" />
+        <error line="12" column="1" severity="error" message="Unexpected indentation (2) (should be 4)" source="indent" />
+        <error line="16" column="1" severity="error" message="Unexpected indentation (2) (should be 4)" source="indent" />
+        <error line="17" column="1" severity="error" message="Unexpected indentation (4) (should be 8)" source="indent" />
+        <error line="18" column="1" severity="error" message="Unexpected indentation (4) (should be 8)" source="indent" />
+        <error line="19" column="1" severity="error" message="Unexpected indentation (2) (should be 4)" source="indent" />
+        <error line="20" column="1" severity="error" message="Unexpected indentation (4) (should be 8)" source="indent" />
+        <error line="21" column="1" severity="error" message="Unexpected indentation (2) (should be 4)" source="indent" />
+    </file>
+    <file name="src/main/kotlin/webserver/WebServer.kt">
+        <error line="26" column="1" severity="error" message="Unexpected blank line(s) before &quot;}&quot;" source="no-blank-line-before-rbrace" />
+        <error line="33" column="1" severity="error" message="Needless blank line(s)" source="no-consecutive-blank-lines" />
+    </file>
+</checkstyle>
