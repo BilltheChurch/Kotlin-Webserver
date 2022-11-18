@@ -5,52 +5,58 @@ import kotlin.test.assertEquals
 
 class WebServerTest {
 
-  @Test
-  fun `can extract scheme`() {
-    assertEquals("http", scheme("http://www.imperial.ac.uk/"))
-    assertEquals("https", scheme("https://www.imperial.ac.uk/"))
-  }
+    @Test
+    fun `can extract scheme`() {
+        assertEquals("http", scheme("http://www.imperial.ac.uk/"))
+        assertEquals("https", scheme("https://www.imperial.ac.uk/"))
+    }
 
-  @Test
-  fun `can extract host`() {
-    assertEquals("www.imperial.ac.uk", host("http://www.imperial.ac.uk/"))
-    assertEquals("www.imperial.ac.uk", host("https://www.imperial.ac.uk/"))
-    assertEquals("www.imperial.ac.uk", host("https://www.imperial.ac.uk/computing"))
-  }
+    @Test
+    fun `can extract host`() {
+        assertEquals("www.imperial.ac.uk", host("http://www.imperial.ac.uk/"))
+        assertEquals("www.imperial.ac.uk", host("https://www.imperial.ac.uk/"))
+        assertEquals("www.imperial.ac.uk", host("https://www.imperial.ac.uk/computing"))
+    }
 
-  @Test
-  fun `can extract path`() {
-    assertEquals("/", path("http://www.imperial.ac.uk/"))
-    assertEquals("/", path("https://www.imperial.ac.uk/"))
-    assertEquals("/computing", path("https://www.imperial.ac.uk/computing"))
-    assertEquals("/computing/programming", path("https://www.imperial.ac.uk/computing/programming"))
-    assertEquals("/computing", path("https://www.imperial.ac.uk/computing?q=abc"))
-  }
+    @Test
+    fun `can extract path`() {
+        assertEquals("/", path("http://www.imperial.ac.uk/"))
+        assertEquals("/", path("https://www.imperial.ac.uk/"))
+        assertEquals("/computing", path("https://www.imperial.ac.uk/computing"))
+        assertEquals(
+            "/computing/programming",
+            path("https://www.imperial.ac.uk/computing/programming")
+        )
+        assertEquals("/computing", path("https://www.imperial.ac.uk/computing?q=abc"))
+    }
 
-  @Test
-  fun `can extract query params`() {
-    assertEquals(listOf(Pair("q", "xxx")), queryParams("http://www.imperial.ac.uk/?q=xxx"))
-    assertEquals(listOf(Pair("q", "xxx"), Pair("rr", "zzz")), queryParams("http://www.imperial.ac.uk/?q=xxx&rr=zzz"))
-  }
+    @Test
+    fun `can extract query params`() {
+        assertEquals(listOf(Pair("q", "xxx")), queryParams("http://www.imperial.ac.uk/?q=xxx"))
+        assertEquals(
+            listOf(Pair("q", "xxx"), Pair("rr", "zzz")),
+            queryParams("http://www.imperial.ac.uk/?q=xxx&rr=zzz")
+        )
+    }
 
-  @Test
-  fun `when no query params in url, empty list is extracted`() {
-    assertEquals(listOf(), queryParams("http://www.imperial.ac.uk/"))
-  }
+    @Test
+    fun `when no query params in url, empty list is extracted`() {
+        assertEquals(listOf(), queryParams("http://www.imperial.ac.uk/"))
+    }
 
 // ***** Tests for Handlers *****
 
-  @Test
- fun `says hello world`() {
-   val request = Request("http://www.imperial.ac.uk/say-hello")
-   assertEquals("Hello, World!", helloHandler(request).body)
- }
+    @Test
+    fun `says hello world`() {
+        val request = Request("http://www.imperial.ac.uk/say-hello")
+        assertEquals("Hello, World!", helloHandler(request).body)
+    }
 
- @Test
- fun `can be customised with particular name`() {
-   val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred")
-   assertEquals("Hello, Fred!", helloHandler(request).body)
- }
+    @Test
+    fun `can be customised with particular name`() {
+        val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred")
+        assertEquals("Hello, Fred!", helloHandler(request).body)
+    }
 
     @Test
     fun `can process multiple params`() {

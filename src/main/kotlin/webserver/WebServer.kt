@@ -5,7 +5,7 @@ package webserver
 // write your web framework code here:
 
 fun scheme(url: String): String =
-        url.substringBefore("://")
+    url.substringBefore("://")
 
 fun host(url: String): String {
     return url.substringAfter("://").substringBefore("/")
@@ -23,7 +23,6 @@ fun queryParams(url: String): List<Pair<String, String>> {
     } else {
         listOf()
     }
-
 }
 
 fun route(request: Request): Response {
@@ -38,16 +37,16 @@ fun route(request: Request): Response {
 
 // http handlers for a particular website...
 fun homePageHandler(request: Request): Response =
-        Response(Status.OK, "This is Imperial.")
+    Response(Status.OK, "This is Imperial.")
 
 fun computingHandler(request: Request): Response =
-        Response(Status.OK, "This is DoC.")
+    Response(Status.OK, "This is DoC.")
 
 fun errorHandler(request: Request): Response =
-        Response(Status.NOT_FOUND)
+    Response(Status.NOT_FOUND)
 
 fun nameHandler(name: String, param: String): String =
-        "Hello, $param!"
+    "Hello, $param!"
 
 fun styleHandler(sentence: String, param: String): String {
     return when (param) {
@@ -60,19 +59,15 @@ fun styleHandler(sentence: String, param: String): String {
 fun helloHandler(request: Request): Response {
     val queryParam = queryParams(request.url)
     val paramHandler = mapOf(
-            Pair("name", ::nameHandler),
-            Pair("style", ::styleHandler)
+        Pair("name", ::nameHandler),
+        Pair("style", ::styleHandler)
     )
     var hello = "Hello, World!"
     for (param in queryParam) {
         paramHandler[param.first]!!.invoke(hello, param.second).also { hello = it }
     }
-    return Response(Status.OK,
-            hello)
+    return Response(
+        Status.OK,
+        hello
+    )
 }
-
-
-
-
-
-
