@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="webserver.WebServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-18T13:18:39" hostname="dyn3215-138.wlan.ic.ac.uk" time="0.024">
+  <properties/>
+  <testcase name="can process multiple params" classname="webserver.WebServerTest" time="0.024"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -12,11 +12,3 @@ enum class Status(val code: Int) {
   NOT_FOUND(404)
 }
 
-fun helloHandler(request: Request): Response {
-  return if (request.url.contains("?")) {
-    val name = request.url.substringAfter("name=").substringBefore("&")
-    Response(Status.OK, "Hello, $name!".toUpperCase())
-  } else {
-    Response(Status.OK, "Hello, World!")
-  }
-}
