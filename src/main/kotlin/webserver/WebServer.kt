@@ -28,21 +28,21 @@ fun queryParams(url: String): List<Pair<String, String>> {
 fun route(request: Request): Response {
     val url = request.url
     return when (path(url)) {
-        "/" -> homePageHandler(request)
+        "/" -> homePageHandler()
         "/say-hello" -> helloHandler(request)
-        "/computing" -> computingHandler(request)
-        else -> errorHandler(request)
+        "/computing" -> computingHandler()
+        else -> errorHandler()
     }
 }
 
 // http handlers for a particular website...
-fun homePageHandler(request: Request): Response =
+fun homePageHandler(): Response =
     Response(Status.OK, "This is Imperial.")
 
-fun computingHandler(request: Request): Response =
+fun computingHandler(): Response =
     Response(Status.OK, "This is DoC.")
 
-fun errorHandler(request: Request): Response =
+fun errorHandler(): Response =
     Response(Status.NOT_FOUND)
 
 fun nameHandler(name: String, param: String): String =
