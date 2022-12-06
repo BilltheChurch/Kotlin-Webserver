@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="webserver.WebServerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2022-11-22T10:36:00" hostname="dyn3210-46.wlan.ic.ac.uk" time="0.03">
+  <properties/>
+  <testcase name="says hello world" classname="webserver.WebServerTest" time="0.016"/>
+  <testcase name="can extract scheme" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="can process multiple params" classname="webserver.WebServerTest" time="0.013"/>
+  <testcase name="can route to hello handler" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="can be customised with particular name" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="can route to homepage handler" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="can extract host" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="can extract path" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="when no query params in url, empty list is extracted" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="can extract query params" classname="webserver.WebServerTest" time="0.0"/>
+  <testcase name="gives 404 when no matching route" classname="webserver.WebServerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
